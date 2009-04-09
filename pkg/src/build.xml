@@ -1,0 +1,43 @@
+<project name="spsextante" basedir="." default="build" >
+
+	<property name="target.dir" value="../inst/java" />
+	<property name="javadoc.dir" value="../inst/javadoc" />
+        <property name="lib.dir" value="../inst/libs" />
+	
+	<target name="clean">
+		<delete dir="bin" />
+		<delete dir="${javadoc.dir}" />
+                <delete dir="${lib.dir}" />
+                <delete dir="${target.dir}" />
+	</target>
+	
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<javac srcdir="java" destdir="bin" />
+	</target>
+	
+	<target name="javadoc">
+		<mkdir dir="${javadoc.dir}" />
+		<javadoc access="public" destdir="${javadoc.dir}"
+      author="true" version="true" use="true" 
+			windowtitle="helloJavaWorld - Java API">
+        
+			 <fileset dir="java" defaultexcludes="yes">
+            <include name="**/*.java"/>
+        </fileset>
+					
+		</javadoc>
+	</target>
+	
+	<target name="build" depends="compile,javadoc">
+        	<mkdir dir="${target.dir}" />
+                <jar destfile="${target.dir}/spsextante.jar" basedir="bin">
+                    <manifest>
+                        <attribute name="Main-Class" value="spsextante"/>
+                    </manifest>
+                </jar>
+		<copy file="java/dummy.so" todir="bin" />     
+     	</target>
+	
+</project>
+

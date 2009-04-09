@@ -1,0 +1,13 @@
+Package: spsextante
+Version: 0.1-10
+Date: 2009-04-09
+Title: Interface between Sextante GIS and R
+Author: Dominik Fuchs
+Maintainer: Dominik Fuchs <contact@dominikfuchs.com>
+Description: spsextante provides access to geospatial processing of Sextante
+	geographical information system from within R.
+Depends: R (>= 2.7.0), rJava (>= 0.5-0)
+Suggests: rgdal, gstat, shapefiles
+SystemRequirements: Java (>= 5.0), ant
+License: GPL-3
+URL: http://www.sextantegis.com/, http://www.dominikfuchs.com/research/software/spsextante
